@@ -1,7 +1,7 @@
 # README
 
 Contributors :
-Alex Harris
+Alex(ander) Harris
 Alex Tomes
 Evan Carlin
 Michael Mulay
