@@ -57,6 +57,9 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "electionapp_#{Rails.env}"
   config.action_mailer.perform_caching = false
 
+  #Does this belong here??? Added by Evan and Alex
+  config.action_mailer.default_url_options = { host: 'http://ec2-52-40-34-90.us-west-2.compute.amazonaws.com/' }
+
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
