@@ -30,6 +30,7 @@
             <% if signed_in? %>
             <li><span><%= current_user.email %></span></li>
             <li><span><%= current_user.created_at %></span></li>
+            <li><span><%= current_user.id %></span></li>
             <li><%= link_to 'Sign out', sign_out_path, method: :delete %></li>
             <% else %>
             <li><%= link_to 'Sign in', sign_in_path %></li>
