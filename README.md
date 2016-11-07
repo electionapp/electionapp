@@ -8,6 +8,19 @@ Alex Tomes
 Evan Carlin
 Michael Mulay
 
+
+## November 6th
+All group members were present. Worked for 3 hours to configure git repository :
+[Election Application GitHub Repository](https://github.com/electionapp/electionapp)
+
+### Implemented :
+* ruby clearance user authentication
+* user add-page functionality
+
+Nov. 8 image:
+![alt text](README_images/add-page.png)
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
