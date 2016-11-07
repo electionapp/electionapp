@@ -1,5 +1,6 @@
 # README
 
+<<<<<<< HEAD
 Contributors :
 Alex(ander) Harris
 Alex Tomes
@@ -11,6 +12,11 @@ application up and running.
 
 
 
+=======
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+>>>>>>> e33dfaf754d2917bb23df7f0e0dfe76d29398e00
 Things you may want to cover:
 
 * Ruby version
