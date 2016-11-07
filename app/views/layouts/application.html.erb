@@ -21,12 +21,17 @@
         <div id="navbar">
           <% if signed_in? %>
           <ul class="nav navbar-nav">
-            <li><%= link_to 'Add Page', sign_in_path %></li>
-            <!-- <li><%= link_to 'Add Page', new_password_path %></li> -->
+
+            <!-- call dummy method 'sign_in_path' until add_page is implemented -->
+            <!-- <li><%= link_to 'Add Page', sign_in_path %></li> -->
+
+            <li><%= link_to 'Add Page', new_page_path %></li>
           </ul>
           <% end %>
 
           <ul class="nav navbar-nav pull-right">
+
+            <!-- the 'signed_in?' and 'current_user' are Clearance helper methods https://github.com/thoughtbot/clearance#helper-methods -->
             <% if signed_in? %>
             <li><span><%= current_user.email %></span></li>
             <li><span><%= current_user.created_at %></span></li>
