@@ -3,48 +3,42 @@
   <head>
     <title>Electionapp</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-
-
     <!-- <%= yield %> -->
-
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
+
         <div class="navbar-header">
           <%= link_to 'electionapp', root_path, class: 'navbar-brand' %>
         </div>
+
         <div id="navbar">
           <% if signed_in? %>
           <ul class="nav navbar-nav">
-
             <!-- call dummy method 'sign_in_path' until add_page is implemented -->
-            <!-- <li><%= link_to 'Add Page', sign_in_path %></li> -->
-
+            <li><%= link_to 'Add Page', after_sign_in_path_for_new_account_session %></li>
             <li><%= link_to 'Create Election', new_page_path %></li>
             <!-- <li><%= link_to 'Vote on Candidate', new_page_path %></li> -->
           </ul>
           <% end %>
 
           <ul class="nav navbar-nav pull-right">
-
-            <!-- the 'signed_in?' and 'current_user' are Clearance helper methods https://github.com/thoughtbot/clearance#helper-methods -->
             <% if signed_in? %>
-            <li><span><%= current_user.email %></span></li>
-            <li><span><%= current_user.created_at %></span></li>
-            <li><span><%= current_user.id %></span></li>
             <li><%= link_to 'Sign out', sign_out_path, method: :delete %></li>
             <% else %>
             <li><%= link_to 'Sign in', sign_in_path %></li>
             <% end %>
           </ul>
+
         </div>
       </div>
     </nav>
+    <!-- the 'signed_in?' and 'current_user' are Clearance helper methods https://github.com/thoughtbot/clearance#helper-methods -->
+
 
     <div class="container">
       <% flash.each do |key, value| %>
