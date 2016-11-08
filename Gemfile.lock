@@ -166,6 +166,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autoprefixer-rails
   bootstrap-sass
   byebug
   clearance (~> 1.15)
