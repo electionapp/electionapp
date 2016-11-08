@@ -7,48 +7,51 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <!-- <%= yield %> -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-
-        <div class="navbar-header">
-          <%= link_to 'electionapp', root_path, class: 'navbar-brand' %>
-        </div>
-
-        <div id="navbar">
-          <% if signed_in? %>
-          <ul class="nav navbar-nav">
-            <!-- call dummy method 'sign_in_path' until add_page is implemented -->
-            <li><%= link_to 'Add Page', after_sign_in_path_for_new_account_session %></li>
-            <li><%= link_to 'Create Election', new_page_path %></li>
-            <!-- <li><%= link_to 'Vote on Candidate', new_page_path %></li> -->
-          </ul>
-          <% end %>
-
-          <ul class="nav navbar-nav pull-right">
-            <% if signed_in? %>
-            <li><%= link_to 'Sign out', sign_out_path, method: :delete %></li>
-            <% else %>
-            <li><%= link_to 'Sign in', sign_in_path %></li>
-            <% end %>
-          </ul>
-
-        </div>
-      </div>
-    </nav>
-    <!-- the 'signed_in?' and 'current_user' are Clearance helper methods https://github.com/thoughtbot/clearance#helper-methods -->
-
-
-    <div class="container">
-      <% flash.each do |key, value| %>
-      <div class="alert alert-<%= key %>">
-        <%= value %>
-      </div>
-      <% end %>
-
-      <%= yield %>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <%= link_to 'Election App', root_path, class: 'navbar-brand' %>
     </div>
+    <ul class="nav navbar-nav">
+      <!-- <li class="active"><a href="#">Home</a></li> -->
+      <li><a href="#">Page 1</a></li>
+      <li><a href="#">Page 2</a></li> 
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+
+    <% if signed_in? %>
+
+
+
+
+      <li><%= link_to 'Sign out', sign_out_path, method: :delete%></li> 
+    
+
+
+
+    <% else %>
+    <li><a href=<%= sign_up_path%>><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href=<%= sign_in_path%>><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    <% end %>
+
+
+
+
+      <!-- <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
+    </ul>
+  </div>
+</nav>
+
+<div class="jumbotron">
+  <div class="container">
+    <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>">
+      <%= value %>
+    </div>
+    <% end %>
+    <%= yield %>
+  </div>
 
 
   </body>
