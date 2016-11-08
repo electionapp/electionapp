@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
 
-  #****** CLEARANCE routes ******
+  #****** CLEARANCE routes that have been redefined for our project structure  ******
   resources :passwords, controller: "passwords", only: [:create, :new]
   resource :session, controller: "sessions", only: [:create]
 
