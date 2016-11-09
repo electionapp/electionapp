@@ -1,4 +1,5 @@
 class ElectionsController < ApplicationController
+  before_action :require_login
   before_action :set_election, only: [:show, :edit, :update, :destroy]
 
   # GET /elections

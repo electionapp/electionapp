@@ -22,19 +22,11 @@
       <li><%= link_to 'Sign out', sign_out_path, method: :delete%></li> 
     <% else %>
     <li><a href=<%= sign_up_path%>><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href=<%= login_path%>><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li><a href=<%= sign_in_path%>><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     <% end %>
     </ul>
   </div>
 </nav>
-
-  <div class="container">
-    <% flash.each do |key, value| %>
-    <div class="alert alert-<%= key %>">
-      <%= value %>
-    </div>
-    <% end %>
-    
     <%= yield %>
 
   </body>
