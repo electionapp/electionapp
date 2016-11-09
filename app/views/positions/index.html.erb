@@ -1,1 +1,23 @@
-Postions
+<p id="notice"><%= notice %></p>
+
+<h1>Positions</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>title</th>
+      <th>description</th>
+      <th>election_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @positions.each do |p| %>
+      <tr>
+        <td><%=p.title%></td>
+        <td><%=p.description%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
