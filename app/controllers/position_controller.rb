@@ -25,6 +25,8 @@ class PositionsController < ApplicationController
   # POST /positions
   # POST /positions.json
   def create
+    p("*******************PARAMEES")
+    p(positions_params)
     @position = position.new(position_params)
 
     respond_to do |format|
