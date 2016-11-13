@@ -69,6 +69,6 @@ class PositionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def position_params
-      params.fetch(:position, {})
+      params.fetch(:position, {}).permit(:election_id)
     end
 end

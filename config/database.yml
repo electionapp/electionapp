@@ -12,6 +12,7 @@ default: &default
 development:
   <<: *default
   database: db/development.sqlite3
+  options: "PRAGMA foreign_keys = 1"
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -19,7 +20,10 @@ development:
 test:
   <<: *default
   database: db/test.sqlite3
+  options: "PRAGMA foreign_keys = 1"
 
 production:
   adapter: sqlite3
   database: db/production.sqlite3
+  options: "PRAGMA foreign_keys = 1"
+
