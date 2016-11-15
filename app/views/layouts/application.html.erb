@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Electionapp</title>
+    <title>Opine</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -10,16 +10,16 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <%= link_to 'Election App', root_path, class: 'navbar-brand' %>
+      <%= link_to 'Opine', root_path, class: 'navbar-brand' %>
     </div>
     <ul class="nav navbar-nav">
       <li><%= link_to 'New Election', new_election_path%></li>
-      <li><%= link_to 'All Elections', elections_path%></li> 
+      <li><%= link_to 'All Elections', elections_path%></li>
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
     <% if signed_in? %>
-      <li><%= link_to 'Sign out', sign_out_path, method: :delete%></li> 
+      <li><%= link_to 'Sign out', sign_out_path, method: :delete%></li>
     <% else %>
     <li><a href=<%= sign_up_path%>><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li><a href=<%= sign_in_path%>><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
