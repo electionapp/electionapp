@@ -1,6 +1,4 @@
-# README
-
-Evan commit test
+# Opine Election Application
 
 Contributors :
 * Alex(ander) Harris
