@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161109011104) do
+ActiveRecord::Schema.define(version: 20161115074715) do
 
   create_table "elections", force: :cascade do |t|
+    t.text     "test"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.text     "description"
     t.text     "start_date"
     t.text     "cloes_date"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
     t.text     "title"
   end
 
@@ -39,6 +40,12 @@ ActiveRecord::Schema.define(version: 20161109011104) do
     t.string   "remember_token",     limit: 128, null: false
     t.index ["email"], name: "index_users_on_email"
     t.index ["remember_token"], name: "index_users_on_remember_token"
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.integer  "position_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end
