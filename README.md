@@ -3,19 +3,12 @@
 Evan commit test
 
 Contributors :
-Alex(ander) Harris
-Alex Tomes
-Evan Carlin
-Michael Mulay
+* Alex(ander) Harris
+* Alex Tomes
+* Evan Carlin
+* Michael Mulay
 
 ## Login Document Object Model Manipulation
-
-'''css
-.col-md-4{
-  display: inline-block;
-  width: 50%;
-}
-'''
 
 ![alt text](README_images/session_DOM.png)
 
