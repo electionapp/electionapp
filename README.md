@@ -8,6 +8,16 @@ Alex Tomes
 Evan Carlin
 Michael Mulay
 
+## Login Document Object Model Manipulation
+
+'''css
+.col-md-4{
+  display: inline-block;
+  width: 50%;
+}
+'''
+
+![alt text](README_images/session_DOM.png)
 
 ## November 6th
 All group members were present. Worked for 3 hours to configure git repository :
