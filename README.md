@@ -1,13 +1,14 @@
-# README
-
-Evan commit test
+# Opine Election Application
 
 Contributors :
-Alex(ander) Harris
-Alex Tomes
-Evan Carlin
-Michael Mulay
+* Alex(ander) Harris
+* Alex Tomes
+* Evan Carlin
+* Michael Mulay
 
+## Login Document Object Model Manipulation
+
+![alt text](README_images/session_DOM.png)
 
 ## November 6th
 All group members were present. Worked for 3 hours to configure git repository :
