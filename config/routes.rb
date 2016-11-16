@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   
-  resources :positions
   #****** CLEARANCE routes that have been redefined for our project structure  ******
   resources :passwords, controller: "passwords", only: [:create, :new]
   resource :session, controller: "sessions", only: [:create]
@@ -16,7 +15,10 @@ Rails.application.routes.draw do
   get "/sign_up" => "users#new", as: "sign_up"
   #************************************************************
 
-  resources :elections
+  resources :elections do
+    resources :positions
+    resources :users
+  end
   root 'welcome#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :pages, only: [:new]
