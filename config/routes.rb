@@ -23,8 +23,12 @@ Rails.application.routes.draw do
 
   resources :elections do
     resources :positions
-    resources :users
   end
+
+  resources :users do
+    resources :elections
+  end
+
   root 'welcome#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :pages, only: [:new]

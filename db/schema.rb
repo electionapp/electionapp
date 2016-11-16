@@ -10,16 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161115074715) do
+ActiveRecord::Schema.define(version: 20161116043328) do
 
   create_table "elections", force: :cascade do |t|
-    t.text     "test"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
     t.text     "description"
     t.text     "start_date"
     t.text     "cloes_date"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.text     "title"
+  end
+
+  create_table "elections_users", id: false, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "election_id"
+    t.index ["user_id", "election_id"], name: "index_elections_users_on_user_id_and_election_id"
   end
 
   create_table "positions", force: :cascade do |t|
