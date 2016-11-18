@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
 
   resources :positions do
-    member do
-      post 'upvote'
-    end
+    resources :candidates
   end
 
   #****** CLEARANCE routes that have been redefined for our project structure  ******
@@ -23,8 +21,11 @@ Rails.application.routes.draw do
 
   resources :elections do
     resources :positions
+
     resources :users
+
   end
+  resources :candidates
   root 'welcome#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :pages, only: [:new]
