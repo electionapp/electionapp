@@ -16,8 +16,7 @@
       <tr>
         <td><%=pos.title%></td>
         <td><%=pos.description%></td>
-        <td><%= pluralize(position.votes.count, "vote") %></td>
-        <td><%= button_to '+1', upvote_position_path(position), method: :post %></td>
+        
       </tr>
     <% end %>
   </tbody>
