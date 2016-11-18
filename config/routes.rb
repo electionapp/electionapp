@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :positions do
-    member do
-      post 'upvote'
-    end
-  end
+  resources :positions
 
   #****** CLEARANCE routes that have been redefined for our project structure  ******
   resources :passwords, controller: "passwords", only: [:create, :new]
