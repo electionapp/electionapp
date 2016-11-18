@@ -14,10 +14,10 @@
   <tbody>
     <% @positions.each do |pos| %>
       <tr>
+        <td><%=pos.id%></td>
         <td><%=pos.title%></td>
         <td><%=pos.description%></td>
-        <td><%= pluralize(position.votes.count, "vote") %></td>
-        <td><%= button_to '+1', upvote_position_path(position), method: :post %></td>
+        <td><%=pos.election_id%></td>
       </tr>
     <% end %>
   </tbody>

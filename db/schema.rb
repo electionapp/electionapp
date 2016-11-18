@@ -9,8 +9,14 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
+ActiveRecord::Schema.define(version: 20161118012730) do
 
-ActiveRecord::Schema.define(version: 20161116043328) do
+  create_table "candidates", force: :cascade do |t|
+    t.string   "name"
+    t.text     "biography"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "elections", force: :cascade do |t|
     t.text     "description"

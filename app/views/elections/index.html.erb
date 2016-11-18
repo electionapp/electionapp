@@ -1,9 +1,9 @@
 <h1>Elections</h1>
 
 
-<table class="table">
+<table class="table table-bordered">
   <thead>
-    <tr>
+    <tr class="active">
       <th>Title</th>
       <th>Description</th>
       <th>Show</th>
@@ -13,7 +13,7 @@
   </thead>
   <tbody>
     <% @elections.each do |election| %>
-      <tr>
+      <tr class="active">
         <td><%=election.title%></td>
         <td><%=election.description%></td>
         <td><%= link_to 'Show', election %></td>
