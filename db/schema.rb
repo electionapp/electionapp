@@ -13,12 +13,11 @@
 ActiveRecord::Schema.define(version: 20161115074715) do
 
   create_table "elections", force: :cascade do |t|
-    t.text     "test"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
     t.text     "description"
     t.text     "start_date"
     t.text     "cloes_date"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.text     "title"
   end
 
