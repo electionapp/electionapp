@@ -22,9 +22,12 @@ Rails.application.routes.draw do
   #************************************************************
 
   resources :elections do
-    resources :positions
+    resources :positions do
+      resources :candidates
+    end
+
     resources :users
-    resources :candidates
+    # resources :candidates
   end
   root 'welcome#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
