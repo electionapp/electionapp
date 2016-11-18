@@ -5,12 +5,8 @@ class ElectionsController < ApplicationController
   # GET /elections
   # GET /elections.json
   def index
-    @elections = Election.all
-  end
-
-  # GET /elections/1
-  # GET /elections/1.json
-  def show
+    # @elections = Election.all
+    @elections = current_user.elections
   end
 
   # GET /elections/new
@@ -26,17 +22,22 @@ class ElectionsController < ApplicationController
   # POST /elections.json
   def create
     @election = Election.new(election_params)
+    @election.save
 
-    respond_to do |format|
-      if @election.save
-        format.html { redirect_to @election, notice: 'Election was successfully created.' }
-        format.json { render :show, status: :created, location: @election }
-      else
-        format.html { render :new }
-        format.json { render json: @election.errors, status: :unprocessable_entity }
-      end
-    end
+    # respond_to do |format|
+    #   if @election.save
+    #     format.html { redirect_to @election, notice: 'Election was successfully created.' }
+    #     format.json { render :show, status: :created, location: @election }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @election.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
+
+  def add_users
+  end
+
 
   # PATCH/PUT /elections/1
   # PATCH/PUT /elections/1.json
@@ -65,7 +66,9 @@ class ElectionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_election
-      @election = Election.find(params[:id])
+      rescue ActiveRecord::RecordNotFound  
+       redirect_to :controller => "main", :action => "index"
+       return
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
