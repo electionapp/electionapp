@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :positions
+  resources :positions do
+    resources :candidates
+  end
 
   #****** CLEARANCE routes that have been redefined for our project structure  ******
   resources :passwords, controller: "passwords", only: [:create, :new]
@@ -18,13 +20,12 @@ Rails.application.routes.draw do
   #************************************************************
 
   resources :elections do
-    resources :positions do
-      resources :candidates
-    end
+    resources :positions
 
     resources :users
-    # resources :candidates
+
   end
+  resources :candidates
   root 'welcome#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :pages, only: [:new]
