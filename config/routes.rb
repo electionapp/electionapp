@@ -15,9 +15,22 @@ Rails.application.routes.draw do
   get "/sign_up" => "users#new", as: "sign_up"
   #************************************************************
 
-get "/user/:id/elections" => "election#index", as: "show_elections" 
-get "/user/:id/election/new" => "election#create", as: "new_election"
-post "/user/:id/election/new" => "election#create", as: "submit_new_election"
+#Election routes
+get "/user/:id/elections/new" => "elections#new", as: "new_election"
+post "/user/:id/elections/new" => "elections#create", as: "submit_new_election"
+
+
+get "/user/:id/elections" => "elections#index", as: "show_elections"
+get "/user/:id/elections/:id" => "elections#show", as: "election" 
+
+# resources :users do
+#   resources :elections do
+#     resources :positions do
+#       resources :candidates
+#     end
+#   end
+# end
+
 
   # resources :positions do
   #   resources :candidates
