@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
 #Election routes
 get "/user/:id/elections/new" => "elections#new", as: "new_election"
-post "/user/:id/elections/new" => "elections#create", as: "submit_new_election"
+post "/user/:id/elections/new" => "elections#create", as: "submit_election"
 
 
 get "/user/:id/elections" => "elections#index", as: "show_elections"

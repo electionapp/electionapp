@@ -10,7 +10,8 @@ class ElectionsController < ApplicationController
   end
 
   def show
-    @elections = current_user.elections
+    @elections = Election.all
+    # @elections = current_user.elections
   end
 
   # GET /elections/new
@@ -26,17 +27,19 @@ class ElectionsController < ApplicationController
   # POST /elections.json
   def create
     @election = Election.new(election_params)
-    @election.save
+    # @election.save
+    # redirect_to 'http://localhost:3000'
 
-    # respond_to do |format|
-    #   if @election.save
-    #     format.html { redirect_to @election, notice: 'Election was successfully created.' }
-    #     format.json { render :show, status: :created, location: @election }
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @election.errors, status: :unprocessable_entity }
-    #   end
-    # end
+    respond_to do |format|
+      if @election.save
+        @election.users << current_user
+        format.html { redirect_to @election, notice: 'Election was successfully created.' }
+        format.json { render :show, status: :created, location: @election }
+      else
+        format.html { render :new }
+        format.json { render json: @election.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def add_users
