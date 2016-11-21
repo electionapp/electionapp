@@ -21,7 +21,8 @@ post "/user/:id/elections/new" => "elections#create", as: "submit_election"
 
 
 get "/user/:id/elections" => "elections#index", as: "show_elections"
-get "/user/:id/elections/:id" => "elections#show", as: "election" 
+get "/user/:id/elections/:id" => "elections#show", as: "election"
+get "/user/:id/elections/:id/edit" => "elections#edit", as: "edit_election"
 
 # resources :users do
 #   resources :elections do

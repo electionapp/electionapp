@@ -17,6 +17,7 @@
         <td><%=election.title%></td>
         <td><%=election.description%></td>
         <td><%= link_to 'Show', election %></td>
+        <td><%= link_to 'Edit', edit_election_path(election) %></td>
       </tr>
     <% end %>
   </tbody>
