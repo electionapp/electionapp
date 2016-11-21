@@ -54,10 +54,4 @@ ActiveRecord::Schema.define(version: 20161118012730) do
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end
 
-  create_table "votes", force: :cascade do |t|
-    t.integer  "position_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
 end

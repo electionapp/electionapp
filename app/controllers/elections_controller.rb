@@ -10,8 +10,7 @@ class ElectionsController < ApplicationController
   end
 
   def show
-    @elections = Election.all
-    # @elections = current_user.elections
+    @election = Election.find(params[:id])
   end
 
   # GET /elections/new
