@@ -9,6 +9,10 @@ class ElectionsController < ApplicationController
     @elections = current_user.elections
   end
 
+  def show
+    @elections = current_user.elections
+  end
+
   # GET /elections/new
   def new
     @election = Election.new

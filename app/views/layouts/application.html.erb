@@ -13,10 +13,17 @@
       <%= link_to 'x', root_path, class: 'navbar-brand' %>
     </div>
     <ul class="nav navbar-nav">
-      <li><%= link_to 'New Election', new_election_path%></li>
-      <li><%= link_to 'All Elections', elections_path%></li>
-      <li><%= link_to 'View Positions', positions_path%></li>
-      <li><%= link_to 'View Candidates', candidates_path%></li>
+        <% if !current_user.nil?%>
+        <li><%= link_to 'New Election',  new_election_path(current_user)%></li>
+        <li><%= link_to 'All Elections', show_elections_path(current_user)%></li>
+        <li><%= link_to 'View Positions', positions_path%></li>
+        <li><%= link_to 'View Candidates', candidates_path%></li>
+        <% else %>
+        <li><%= link_to 'New Election',  sign_in_path%></li>
+        <li><%= link_to 'All Elections', sign_in_path%></li>
+        <li><%= link_to 'View Positions', sign_in_path%></li>
+        <li><%= link_to 'View Candidates', sign_in_path%></li>
+        <% end %>
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
