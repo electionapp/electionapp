@@ -1,7 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
-  <%= @election.title %>
+ <h1><%= @election.title %></br></h1>
+  <div class="col-md-4">
+  <%= @election.description %></br>
+  <%= @election.start_date %>
+  <%= @election.cloes_date %>
+  </div>
+  
 </p>
 
