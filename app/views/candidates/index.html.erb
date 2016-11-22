@@ -16,13 +16,10 @@
       <tr>
         <td><%= candidate.name %></td>
         <td><%= candidate.biography %></td>
-        <td><%= link_to 'Show', candidate %></td>
-        <td><%= link_to 'Edit', edit_candidate_path(candidate) %></td>
-        <td><%= link_to 'Destroy', candidate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-<%= link_to 'New Candidate', new_candidate_path %>
+<%= link_to 'New Candidate', new_user_election_position_candidate_path %>

@@ -1,5 +1,35 @@
 <h1>New Candidate</h1>
 
-<%= render 'form', candidate: @candidate %>
 
-<%= link_to 'Back', candidates_path %>
+
+<%= form_for(@candidate, url: user_election_position_candidates_path(position_id: params[:position_id]), method: :post) do |form| %>
+  
+
+  <% if @candidate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@candidate.errors.count, "error") %> prohibited this candidate from being saved:</h2>
+
+      <ul>
+      <% @candidate.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :biography %>
+    <%= form.text_area :biography %>
+  </div>
+
+<%= form.hidden_field :position_id, :value => params[:position_id] %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

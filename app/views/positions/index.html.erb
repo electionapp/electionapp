@@ -9,6 +9,7 @@
       <th>title</th>
       <th>description</th>
       <th>election_id</th>
+      <th>show</th>
     </tr>
   </thead>
   <tbody>
@@ -18,6 +19,7 @@
         <td><%=pos.title%></td>
         <td><%=pos.description%></td>
         <td><%=pos.election_id%></td>
+        <td><%= link_to 'Candidates', user_election_position_candidates_path(position_id: pos.id) %>
       </tr>
     <% end %>
   </tbody>
