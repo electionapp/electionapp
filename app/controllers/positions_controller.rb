@@ -4,7 +4,8 @@ class PositionsController < ApplicationController
   # GET /positions
   # GET /positions.json
   def index
-    @positions = Position.all
+    @positions = Election.find(params[:election_id]).positions
+    pp params[:election_id]
   end
 
   # GET /positions/1
@@ -25,11 +26,10 @@ class PositionsController < ApplicationController
   # POST /positions.json
   def create
     @position = Position.new(position_params)
-    # render :text => position_params[:election_id]
     respond_to do |format|
       if @position.save
-        # format.html { redirect_to @position, notice: 'Position was successfully created.' }
-        # format.json { render :show, status: :created, location: @position }
+        format.html { redirect_to user_election_positions_path, notice: 'Position was successfully created.' }
+        format.json { render :show, status: :created, location: @position }
       else
         format.html { render :new }
         format.json { render json: @position.errors, status: :unprocessable_entity }
@@ -69,6 +69,6 @@ class PositionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def position_params
-      params.fetch(:position, {}).permit(:election_id, :title, :description)
+      params.fetch(:position, {}).permit(:election_id, :title, :description, :user_id)
     end
 end
