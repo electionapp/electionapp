@@ -19,9 +19,15 @@ end
       controller: "passwords",
       only: [:create, :edit, :update]
   end
-
   get "/sign_in" => "sessions#new", as: "sign_in"
   delete "/sign_out" => "sessions#destroy", as: "sign_out"
   get "/sign_up" => "users#new", as: "sign_up"
   #************************************************************
+
+# base = "/user/:id/elections"
+# #Election routes
+# get "#{base}/new" => "elections#new", as: "new_election"
+get "/user/:user_id/elections/:election_id/users" => "elections#show_users", as: "election_users"
+get "/user/:user_id/elections/:election_id/users/add" => "elections#add_users", as: "add_users_to_election"
+
 end

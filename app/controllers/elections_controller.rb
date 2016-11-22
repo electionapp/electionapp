@@ -37,9 +37,12 @@ class ElectionsController < ApplicationController
     end
   end
 
-  def add_users
+  def show_users
+    @users = Election.find(params[:election_id]).users
   end
 
+  def add_users
+  end
 
   # PATCH/PUT /elections/1
   # PATCH/PUT /elections/1.json
