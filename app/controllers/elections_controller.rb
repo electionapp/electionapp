@@ -28,7 +28,7 @@ class ElectionsController < ApplicationController
     respond_to do |format|
       if @election.save
         @election.users << current_user #add the current user to the users for this election
-        format.html { redirect_to user_election_path(id: current_user.id), notice: 'Election was successfully created.' }
+        format.html { redirect_to user_elections_path, notice: 'Election was successfully created.' }
         format.json { render :show, status: :created, location: @election }
       else
         format.html { render :new }
@@ -46,7 +46,7 @@ class ElectionsController < ApplicationController
   def update
     respond_to do |format|
       if @election.update(election_params)
-        format.html { redirect_to @election, notice: 'Election was successfully updated.' }
+        format.html { redirect_to user_elections_path, notice: 'Election was successfully updated.' }
         format.json { render :show, status: :ok, location: @election }
       else
         format.html { render :edit }
