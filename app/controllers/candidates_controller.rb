@@ -7,7 +7,6 @@ class CandidatesController < ApplicationController
   def index
     # @candidates = Candidate.all
     @candidates = Position.find(params[:position_id]).candidates
-
   end
 
   # GET /candidates/1
@@ -71,7 +70,6 @@ class CandidatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def candidate_params
-      # params.require(:candidate).permit(:name, :biography, :position_id)
       params.fetch(:candidate, {}).permit(:name, :biography, :position_id)
 
     end

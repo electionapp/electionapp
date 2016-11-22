@@ -6,7 +6,6 @@ class PositionsController < ApplicationController
   # GET /positions.json
   def index
     @positions = Election.find(params[:election_id]).positions
-    pp params[:election_id]
   end
 
   # GET /positions/1

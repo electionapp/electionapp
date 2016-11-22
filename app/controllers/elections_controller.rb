@@ -5,7 +5,6 @@ class ElectionsController < ApplicationController
   # GET /elections
   # GET /elections.json
   def index
-    # @elections = Election.all
     @elections = current_user.elections
   end
 
@@ -26,12 +25,9 @@ class ElectionsController < ApplicationController
   # POST /elections.json
   def create
     @election = Election.new(election_params)
-    # @election.save
-    # redirect_to 'http://localhost:3000'
-
     respond_to do |format|
       if @election.save
-        @election.users << current_user
+        @election.users << current_user #add the current user to the users for this election
         format.html { redirect_to user_election_path(id: current_user.id), notice: 'Election was successfully created.' }
         format.json { render :show, status: :created, location: @election }
       else
