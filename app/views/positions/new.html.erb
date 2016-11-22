@@ -1,5 +1,38 @@
 <h1>New Position</h1>
+<%= form_for(@position, url: submit_position_path) do |form| %>
+  <div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-7">
+            <div class="panel panel-default">
+                <div class="panel-heading"> <strong class="">Create a position</strong>
+                </div>
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form">
 
-<%= render 'form', position: @position %>
 
-<%= link_to 'Back', positions_path %>
+                        <div class="form-group">
+                            <label for="title" class="col-sm-2 control-label">Position Title</label>
+                            <div class="col-sm-9">
+                                <%= form.text_field :title, type: 'text', class: "form-control", placeholder: 'Title', required: ''%>
+                            </div>
+                        </div>
+
+                        <label for="description" class="col-sm-2 control-label">Description</label>
+                            <div class="col-sm-9">
+                                <%= form.text_field :description, type: 'text', class: "form-control", placeholder: 'Description', required: ''%>
+                            </div>
+                        </div>
+
+                        <div class="form-group last">
+                            <div class="col-sm-offset-2 col-sm-9">
+                                <button type="submit" class="btn btn-success btn-sm">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<% end %>
+

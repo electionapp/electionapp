@@ -16,14 +16,20 @@ Rails.application.routes.draw do
   #************************************************************
 
 # ********* Ordering matters in this file ********
+base = "/user/:id/elections"
 #Election routes
-get "/user/:id/elections/new" => "elections#new", as: "new_election"
-post "/user/:id/elections/new" => "elections#create", as: "submit_election"
-get "/user/:id/elections" => "elections#index", as: "show_elections"
-get "/user/:id/elections/:id" => "elections#show", as: "election"
-get "/user/:id/elections/:id/edit" => "elections#edit", as: "edit_election"
-post "/user/:id/elections/:id/edit" => "elections#update", as: "update_election"
+get "#{base}/new" => "elections#new", as: "new_election"
+post "#{base}/new" => "elections#create", as: "submit_election"
+get "#{base}" => "elections#index", as: "show_elections"
+get "#{base}/:id" => "elections#show", as: "election"
+get "/#{base}/:id/edit" => "elections#edit", as: "edit_election"
+post "#{base}/:id/edit" => "elections#update", as: "update_election"
 
+get "#{base}/:id/positions" => "positions#index", as: "show_positions"
+get "#{base}/:id/postions/new" => "positions#new", as: "new_position"
+post "#{base}/:id/positions/new" => "positions#create", as: "submit_position"
+ # resource :positions
+  resource :candidates
 # resources :users do
 #   resources :elections do
 #     resources :positions do
@@ -38,8 +44,6 @@ post "/user/:id/elections/:id/edit" => "elections#update", as: "update_election"
   # end
 
   # resource :elections
-  resource :positions
-  resource :candidates
   # resource :elections do
   #     get "add_users"
   # end
