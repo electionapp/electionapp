@@ -14,14 +14,11 @@
     </div>
     <ul class="nav navbar-nav">
         <% if !current_user.nil?%>
-        <li><%= link_to 'New Election',  new_election_path(current_user)%></li>
-        <li><%= link_to 'All Elections', show_elections_path(current_user)%></li>
-        <li><%= link_to 'View Positions', show_positions_path%></li>
-        <!--<li><%= link_to 'View Candidates', candidates_path%></li> -->
+        <li><%= link_to 'New Election',  new_user_election_path(current_user)%></li>
+        <li><%= link_to 'All Elections', user_elections_path(current_user)%></li>
         <% else %>
         <li><%= link_to 'New Election',  sign_in_path%></li>
         <li><%= link_to 'All Elections', sign_in_path%></li>
-        <li><%= link_to 'View Positions', sign_in_path%></li>
         <!-- <li><%= link_to 'View Candidates', sign_in_path%></li> -->
         <% end %>
     </ul>

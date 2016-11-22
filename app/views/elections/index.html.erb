@@ -16,11 +16,11 @@
       <tr class="active">
         <td><%=election.title%></td>
         <td><%=election.description%></td>
-        <td><%= link_to 'Show', election %></td>
-        <td><%= link_to 'Edit', edit_election_path(election) %></td>
+        <td><%= election.id %></td>
+        <td><%= link_to 'Show', user_election_path(id: election.id) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 <br>
-<%= link_to 'New Election', new_election_path %>
+<%= link_to 'New Election', new_user_election_path %>
