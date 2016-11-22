@@ -1,4 +1,5 @@
 class PositionsController < ApplicationController
+  before_action :require_login
   before_action :set_position, only: [:show, :edit, :update, :destroy]
 
   # GET /positions

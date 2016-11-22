@@ -1,11 +1,10 @@
 <p id="notice"><%= notice %></p>
 <table class="table">
+<h1>Positions for <%= Position.find(params[:position_id]).title%></h1>
   <thead>
     <tr>
       <th>Name</th>
       <th>Biography</th>
-      <th>Election</th>
-      <th>Position</th>
     </tr>
   </thead>
   <tbody>
@@ -13,8 +12,6 @@
       <tr>
         <td><%=candidate.name%></td>
         <td><%=candidate.biography%></td>
-        <td><%= params[:election_id]%></td>
-        <td><%= candidate.position_id %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,3 +19,5 @@
 <br>
 
 <%= link_to 'New Candidate', new_user_election_position_candidate_path %>
+<div></div>
+<%= link_to 'Back', user_election_positions_path %>
