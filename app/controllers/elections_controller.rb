@@ -32,7 +32,7 @@ class ElectionsController < ApplicationController
     respond_to do |format|
       if @election.save
         @election.users << current_user
-        format.html { redirect_to user_election_path(id: current_user.id, election_id: @election.id), notice: 'Election was successfully created.' }
+        format.html { redirect_to user_election_path(id: current_user.id), notice: 'Election was successfully created.' }
         format.json { render :show, status: :created, location: @election }
       else
         format.html { render :new }

@@ -1,25 +1,24 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Candidates</h1>
-
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
       <th>Biography</th>
-      <th colspan="3"></th>
+      <th>Election</th>
+      <th>Position</th>
     </tr>
   </thead>
-
   <tbody>
     <% @candidates.each do |candidate| %>
       <tr>
-        <td><%= candidate.name %></td>
-        <td><%= candidate.biography %></td>
+        <td><%=candidate.name%></td>
+        <td><%=candidate.biography%></td>
+        <td><%= params[:election_id]%></td>
+        <td><%= candidate.position_id %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
 <br>
+
 <%= link_to 'New Candidate', new_user_election_position_candidate_path %>
