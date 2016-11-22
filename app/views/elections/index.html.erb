@@ -6,9 +6,7 @@
     <tr class="active">
       <th>Title</th>
       <th>Description</th>
-      <th>Show</th>
-      <th>Edit</th>
-      <th>Destroy</th>
+      <th>Positions</th>
     </tr>
   </thead>
   <tbody>
@@ -16,8 +14,7 @@
       <tr class="active">
         <td><%=election.title%></td>
         <td><%=election.description%></td>
-        <td><%= election.id %></td>
-        <td><%= link_to 'Show', user_election_path(id: election.id) %></td>
+        <td><%= link_to 'Positions', user_election_positions_path(election_id: election.id) %></td>
       </tr>
     <% end %>
   </tbody>
