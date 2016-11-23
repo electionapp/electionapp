@@ -1,27 +1,23 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Positions</h1>
-
+<p id="notice"><%= notice %></p>
 <table class="table">
   <thead>
     <tr>
-      <th>id</th>
-      <th>title</th>
-      <th>description</th>
-      <th>election_id</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Candidates</th>
     </tr>
   </thead>
   <tbody>
     <% @positions.each do |pos| %>
       <tr>
-        <td><%=pos.id%></td>
         <td><%=pos.title%></td>
         <td><%=pos.description%></td>
-        <td><%=pos.election_id%></td>
+        <td><%= link_to 'Candidates', user_election_position_candidates_path(position_id: pos.id) %>
       </tr>
     <% end %>
   </tbody>
 </table>
 <br>
 
-<%= link_to 'New Position', new_position_path %>
+<%= link_to 'New Position', new_user_election_position_path %>

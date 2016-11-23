@@ -1,5 +1,38 @@
 <h1>New Position</h1>
+<%= form_for(@position, url: user_election_positions_path(election_id: params[:election_id], user_id: params[:user_id]), method: :post) do |form| %>
+  <div class="container">
+    <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading"> <strong class="">Create a position</strong>
+                </div>
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form">
 
-<%= render 'form', position: @position %>
 
-<%= link_to 'Back', positions_path %>
+                        <div class="form-group">
+                            <label for="title" class="col-sm-2 control-label">Position Title</label>
+                            <div class="col-sm-9">
+                                <%= form.text_field :title, type: 'text', class: "form-control", placeholder: 'Title', required: ''%>
+                            </div>
+                        </div>
+
+                        <label for="description" class="col-sm-2 control-label">Description</label>
+                            <div class="col-sm-9">
+                                <%= form.text_field :description, type: 'text', class: "form-control", placeholder: 'Description', required: ''%>
+                            </div>
+                        </div>
+
+                        <%= form.hidden_field :election_id, :value => params[:election_id] %>
+
+                        <div class="form-group last">
+                            <div class="col-sm-offset-2 col-sm-9">
+                                <button type="submit" class="btn btn-success btn-sm">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+        </div>
+    </div>
+</div>
+<% end %>
+

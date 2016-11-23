@@ -1,5 +1,33 @@
 <h1>New Candidate</h1>
+<%= form_for(@candidate, url: user_election_position_candidates_path(election_id: params[:election_id], user_id: params[:user_id]), method: :post) do |form| %>
+  <div class="container">
+    <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading"> <strong class="">Create a candidate</strong>
+                </div>
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label for="name" class="col-sm-2 control-label">Name</label>
+                            <div class="col-sm-9">
+                                <%= form.text_field :name, type: 'text', class: "form-control", placeholder: 'Name', required: ''%>
+                            </div>
+                        </div>
+                        <label for="biography" class="col-sm-2 control-label">Biography</label>
+                            <div class="col-sm-9">
+                                <%= form.text_area :biography, type: 'text', class: "form-control", placeholder: 'About me ...'%>
+                            </div>
+                        </div>
+                        <%= form.hidden_field :position_id, :value => params[:position_id] %>
 
-<%= render 'form', candidate: @candidate %>
-
-<%= link_to 'Back', candidates_path %>
+                        <div class="form-group last">
+                            <div class="col-sm-offset-2 col-sm-9">
+                                <button type="submit" class="btn btn-success btn-sm">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+</div>
+<% end %>

@@ -5,7 +5,6 @@ class ElectionsController < ApplicationController
   # GET /elections
   # GET /elections.json
   def index
-    # @elections = Election.all
     @elections = current_user.elections
   end
 
@@ -26,13 +25,10 @@ class ElectionsController < ApplicationController
   # POST /elections.json
   def create
     @election = Election.new(election_params)
-    # @election.save
-    # redirect_to 'http://localhost:3000'
-
     respond_to do |format|
       if @election.save
-        @election.users << current_user
-        format.html { redirect_to @election, notice: 'Election was successfully created.' }
+        @election.users << current_user #add the current user to the users for this election
+        format.html { redirect_to user_elections_path, notice: 'Election was successfully created.' }
         format.json { render :show, status: :created, location: @election }
       else
         format.html { render :new }
@@ -41,16 +37,22 @@ class ElectionsController < ApplicationController
     end
   end
 
-  def add_users
+  def show_users
+    @users = Election.find(params[:election_id]).users
   end
 
+  def add_users
+    #Will need to create a loop to loop over each user being added
+    # election = Election.find(election_params[:election_id]) #Find the election we want to add the users to
+    # election.users << User.find(election_params[:user_id])
+  end
 
   # PATCH/PUT /elections/1
   # PATCH/PUT /elections/1.json
   def update
     respond_to do |format|
       if @election.update(election_params)
-        format.html { redirect_to @election, notice: 'Election was successfully updated.' }
+        format.html { redirect_to user_elections_path, notice: 'Election was successfully updated.' }
         format.json { render :show, status: :ok, location: @election }
       else
         format.html { render :edit }

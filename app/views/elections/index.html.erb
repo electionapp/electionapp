@@ -1,14 +1,12 @@
 <h1>Elections</h1>
-
-
+<p id="notice"><%= notice %></p>
 <table class="table table-bordered">
   <thead>
     <tr class="active">
       <th>Title</th>
       <th>Description</th>
-      <th>Show</th>
-      <th>Edit</th>
-      <th>Destroy</th>
+      <th>Positions</th>
+      <th>Users</th>
     </tr>
   </thead>
   <tbody>
@@ -16,11 +14,11 @@
       <tr class="active">
         <td><%=election.title%></td>
         <td><%=election.description%></td>
-        <td><%= link_to 'Show', election %></td>
-        <td><%= link_to 'Edit', edit_election_path(election) %></td>
+        <td><%= link_to 'Positions', user_election_positions_path(election_id: election.id) %></td>
+        <td><%= link_to 'Users', election_users_path(election_id: election.id)%></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 <br>
-<%= link_to 'New Election', new_election_path %>
+<%= link_to 'New Election', new_user_election_path %>

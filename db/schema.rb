@@ -13,10 +13,12 @@
 ActiveRecord::Schema.define(version: 20161118012730) do
 
   create_table "candidates", force: :cascade do |t|
+    t.integer  "position_id", null: false
     t.string   "name"
     t.text     "biography"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["position_id"], name: "index_candidates_on_position_id"
   end
 
   create_table "elections", force: :cascade do |t|
