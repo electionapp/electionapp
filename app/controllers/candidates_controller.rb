@@ -65,6 +65,7 @@ class CandidatesController < ApplicationController
   def upvote
     @candidate = Candidate.find(params[:id])
     @candidate.votes.create
+    redirect_to(user_election_position_candidates_path)
 
   end
 
