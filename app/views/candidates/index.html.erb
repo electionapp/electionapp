@@ -13,7 +13,7 @@
         <td><%=candidate.name%></td>
         <td><%=candidate.biography%></td>
         <td><%= pluralize(candidate.votes.count, "vote") %></td>
-        <td><%= button_to '+1', method: :post %></td>
+        <td><%= button_to '+1',upvote_user_election_position_candidate_path(id: candidate.id), method: :post %></td>
 
 
 

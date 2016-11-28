@@ -78,7 +78,7 @@ class CandidatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def candidate_params
-      params.fetch(:candidate, {}).permit(:name, :biography, :position_id)
+      params.fetch(:candidate, {}).permit(:name, :biography, :position_id, :id)
 
     end
 end
