@@ -63,7 +63,7 @@ class CandidatesController < ApplicationController
   end
 
   def upvote
-    @candiate = Candidate.find(params[:id])
+    @candidate = Candidate.find(params[:id])
 
   end
 
