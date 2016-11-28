@@ -12,6 +12,8 @@
       <tr>
         <td><%=candidate.name%></td>
         <td><%=candidate.biography%></td>
+        <td><%= pluralize(candidate.votes.count, "vote") %></td>
+        
       </tr>
     <% end %>
   </tbody>
