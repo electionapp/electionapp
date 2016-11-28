@@ -13,7 +13,10 @@
         <td><%=candidate.name%></td>
         <td><%=candidate.biography%></td>
         <td><%= pluralize(candidate.votes.count, "vote") %></td>
-        
+        <td><%= button_to '+1', method: :post %></td>
+
+
+
       </tr>
     <% end %>
   </tbody>
