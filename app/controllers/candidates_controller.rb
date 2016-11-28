@@ -62,6 +62,10 @@ class CandidatesController < ApplicationController
     end
   end
 
+  def upvote
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_candidate
