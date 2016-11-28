@@ -64,6 +64,7 @@ class CandidatesController < ApplicationController
 
   def upvote
     @candidate = Candidate.find(params[:id])
+    @candidate.votes.create
 
   end
 
