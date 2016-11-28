@@ -4,7 +4,11 @@ Rails.application.routes.draw do
 resources :users do
   resources :elections do
     resources :positions do
-      resources :candidates
+      resources :candidates do
+        member do
+          post 'upvote'
+        end
+      end
     end
   end
 end
