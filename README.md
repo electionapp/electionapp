@@ -6,6 +6,10 @@ Contributors :
 * Evan Carlin
 * Michael Mulay
 
+![alt text](README_images/election.png)
+![alt text](README_images/position.png)
+![alt text](README_images/candidate.png)
+
 ## Login Document Object Model Manipulation
 
 ![alt text](README_images/session_DOM.png)
