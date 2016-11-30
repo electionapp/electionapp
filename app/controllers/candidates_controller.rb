@@ -63,25 +63,19 @@ class CandidatesController < ApplicationController
   end
 
   def upvote
+    #Get all of this users prvious votes
     previousVotes = Vote.where(user_id: params[:user_id])
-    previousVotes.each do |vote|
-      #If this user has already voted for this candidate
-      if(vote[:candidate_id] == params[:id].to_i && vote[:user_id] == params[:user_id].to_i)
-        pp "REEEEEEEEEEEEEEEEdirect"
-        #TODO: don't save this vote and redirect the user with a flash notice
+    previousVotes.each do |prevVote|
+      #If this user has already voted for someone in this position
+      if(prevVote[:position_id] == params[:position_id].to_i && prevVote[:user_id] == params[:user_id].to_i)
+        return redirect_to(user_election_position_candidates_path, :notice => 'You have already voted for a candidate in this position.')
       end
     end
-
-    # if(!previousVote.nil? && previousVote[:candidate_id] == params[:id].to_i)
-    #     pp "*******************************"
-    #     pp "redirect"
-    #     pp "**********************************"
-    #   end
-    @candidate = Candidate.find(params[:id])
-    @candidate.votes.create(user_id: params[:user_id])
-    # redirect_to(user_election_position_candidates_path)
-    redirect_to(user_election_position_candidates_path)
-
+    #The user hasn't already voted for someone in this position so save their vote
+      @candidate = Candidate.find(params[:id])
+      vote = @candidate.votes.new(candidate_id: params[:id], user_id: params[:user_id], position_id: params[:position_id])
+      vote.save
+      redirect_to(user_election_position_candidates_path, :notice => "Your vote has been recorded.")
   end
 
   private
