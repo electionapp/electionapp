@@ -47,7 +47,7 @@ class ElectionsController < ApplicationController
     election.users << User.find(election_params[:user_id])
     new_user = params[:new_user]
     if election.users.include? new_user
-      format.html { redirect_to elections_url, notice: 'User Already Exists.' }new
+      format.html { redirect_to elections_url, notice: 'User Already Exists.' }
     else
       election << new_user
     end
