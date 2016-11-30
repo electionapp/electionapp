@@ -22,20 +22,48 @@ $secondary-color: #911417
 
 body
 	background-color: $primary-color
+	padding-bottom: fill
 
-.col-md-4
-	border-radius: 75px
+.content-primary
+	margin-left: 25px
+	border-radius: 15px
 	border-color: black
+	border-style: dotted
 	background-color: $primary-color
-	background-width: 50px
-	display: block
+	color: white
+	display: inline
 
 .container
 	background-color: $secondary-color
-	width: 80%
+	border-radius: 15px
+	margin: 20px
+	color: black
+
+.content-secondary
+	background-color: $secondary-color
+	color: black
+	margin: 20px
+	border-radius: 15px
+	border: dotted 2px black
 
 .navbar-header
-	
+	background-color: $primary-color
+	border-radius: 25px
+	padding-left: 20px
+	text-align: center
+	border-right: 2px solid #c3d0d1
+
+.active
+	background-color: $primary-color
+	text-decoration: underline
+
 .navbar
-	background-color: $secondary-color
-	border-radius: 75px
+	background-color: $primary-color
+	border-radius: 25px
+	border-style: solid
+	border-width: 10px
+	border-color: $secondary-color
+
+	.header
+	border-bottom: solid
+	margin-left: 5px
