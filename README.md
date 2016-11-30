@@ -6,6 +6,8 @@ Contributors :
 * Evan Carlin
 * Michael Mulay
 
+
+![alt text](README_images/opine_logo.jpg)
 ![alt text](README_images/election.png)
 ![alt text](README_images/position.png)
 ![alt text](README_images/candidate.png)
