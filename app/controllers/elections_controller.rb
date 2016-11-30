@@ -43,8 +43,9 @@ class ElectionsController < ApplicationController
 
   def add_users
     #Will need to create a loop to loop over each user being added
-    # election = Election.find(election_params[:election_id]) #Find the election we want to add the users to
-    # election.users << User.find(election_params[:user_id])
+    election = Election.find(election_params[:election_id]) #Find the election we want to add the users to
+    election.users << User.find(election_params[:user_id])
+    
   end
 
   # PATCH/PUT /elections/1
