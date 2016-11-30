@@ -63,12 +63,20 @@ class CandidatesController < ApplicationController
   end
 
   def upvote
-    pp "**********************************"
-    previousVote = Vote.where(user_id: params[:user_id]).first
-    pp previousVote
-    pp"&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&7"
-    pp previousVote[:candidate_id]
-    pp "***********************************"
+    previousVotes = Vote.where(user_id: params[:user_id])
+    previousVotes.each do |vote|
+      #If this user has already voted for this candidate
+      if(vote[:candidate_id] == params[:id].to_i && vote[:user_id] == params[:user_id].to_i)
+        pp "REEEEEEEEEEEEEEEEdirect"
+        #TODO: don't save this vote and redirect the user with a flash notice
+      end
+    end
+
+    # if(!previousVote.nil? && previousVote[:candidate_id] == params[:id].to_i)
+    #     pp "*******************************"
+    #     pp "redirect"
+    #     pp "**********************************"
+    #   end
     @candidate = Candidate.find(params[:id])
     @candidate.votes.create(user_id: params[:user_id])
     # redirect_to(user_election_position_candidates_path)
