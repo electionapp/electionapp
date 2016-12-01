@@ -1,15 +1,13 @@
-<h1>Users</h1>
+<h1>Users allowed to vote in <%= Election.find(params[:election_id]).title%></h1>
 <table class="table table-bordered">
   <thead>
     <tr class="active">
-      <th>Uid</th>
       <th>Email</th>
     </tr>
   </thead>
   <tbody>
     <% @users.each do |user| %>
       <tr class="active">
-        <td><%=user.id%></td>
         <td><%= user.email%></td>
       </tr>
     <% end %>

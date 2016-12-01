@@ -26,9 +26,6 @@ class ElectionsController < ApplicationController
   # POST /elections
   # POST /elections.json
   def create
-    pp "**********************"
-    pp election_params
-    pp "*************************"
     @election = Election.new(election_params)
     respond_to do |format|
       if @election.save
