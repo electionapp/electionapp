@@ -1,32 +1,39 @@
 <table class="table">
-<p id="notice"><%= notice %></p>
-<h1>Candidates for <%= Position.find(params[:position_id]).title%></h1>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Biography</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @candidates.each do |candidate| %>
-      <tr>
-        <td><%=candidate.name%></td>
-        <td><%=candidate.biography%></td>
-        <td><%= pluralize(candidate.votes.count, "vote") %></td>
-        <td><% if (Time.now() - Election.find(params[:election_id]).close_date) >0 %>
-        <td><%= button_to '+1',upvote_user_election_position_candidate_path(id: candidate.id), method: :post %></td>
-        <%else%>
-        <td>Election is closed</td>
-        <%end %>
-
-
-
-      </tr>
-    <% end %>
-  </tbody>
+    <p id="notice">
+        <%=notice %>
+    </p>
+    <h1>Candidates for <%= Position.find(params[:position_id]).title%></h1>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Biography</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @candidates.each do |candidate| %>
+            <tr>
+                <td>
+                    <%=candidate.name%>
+                </td>
+                <td>
+                    <%=candidate.biography%>
+                </td>
+                <td>
+                    <%=pluralize(candidate.votes.count, "vote") %>
+                </td>
+                <% if (Time.now() - Election.find(params[:election_id]).close_date)>0 %>
+                    <td>
+                        <%=button_to '+1',upvote_user_election_position_candidate_path(id: candidate.id), method: :post %>
+                    </td>
+                    <%else%>
+                        <td>Election is closed</td>
+                        <%end %>
+            </tr>
+            <% end %>
+    </tbody>
 </table>
 <br>
-<%= link_to 'New Candidate', new_user_election_position_candidate_path %>
-<div>
-<%= link_to 'Back', user_election_positions_path %>
-</div>
+<%=link_to 'New Candidate', new_user_election_position_candidate_path %>
+    <div>
+        <%=link_to 'Back', user_election_positions_path %>
+    </div>
