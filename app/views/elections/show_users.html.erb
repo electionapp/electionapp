@@ -16,4 +16,4 @@
   </tbody>
 </table>
 
-<%= link_to 'Add users', add_users_to_election_path(params[:user_id]) %>
+<%= link_to 'Add users', add_users_to_election_path(user_id: params[:user_id], election_id: params[:election_id]) %>

@@ -43,7 +43,10 @@ class ElectionsController < ApplicationController
 
   def add_users
     #Will need to create a loop to loop over each user being added
-    election = Election.find(election_params[:election_id]) #Find the election we want to add the users to
+    pp "**********************"
+    pp params[:election_id]
+    pp "****************************"
+    election = Election.find(election_params[:id]) #Find the election we want to add the users to
     election.users << User.find(election_params[:user_id])
     new_user = params[:new_user] #Find new user to add
     if election.users.include? new_user #If that user already exists
@@ -87,6 +90,6 @@ class ElectionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def election_params
-      params.fetch(:election, {}).permit(:title, :description)
+      params.fetch(:election, {}).permit(:title, :description, :election_id)
     end
 end
