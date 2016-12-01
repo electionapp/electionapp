@@ -26,6 +26,9 @@ class ElectionsController < ApplicationController
   # POST /elections
   # POST /elections.json
   def create
+    pp "**********************"
+    pp election_params
+    pp "*************************"
     @election = Election.new(election_params)
     respond_to do |format|
       if @election.save
@@ -109,6 +112,6 @@ class ElectionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def election_params
-      params.fetch(:election, {}).permit(:title, :description, :election_id)
+      params.fetch(:election, {}).permit(:title, :description, :election_id, :close_date)
     end
 end
