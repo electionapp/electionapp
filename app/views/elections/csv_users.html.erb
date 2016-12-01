@@ -1,7 +1,10 @@
 <%= form_for(:users, url: add_users_to_election_from_csv_path, method: :post) do |form| %> 
   <%= form.file_field :csv %>
   <div class="form-group last">
-                            <div class="col-sm-offset-2 col-sm-9">
-                                <button type="submit" class="btn btn-success btn-sm">Submit</button>
-                            </div>
+   		<div class="col-sm-offset-2 col-sm-9">
+       		<button type="submit" class="btn btn-success btn-sm">Submit</button>
+   		</div>                         
+   </div>
 <% end %>
+<div></div>
+<td><%= link_to 'Users', election_users_path(election_id: params[:election_id])%></td>
