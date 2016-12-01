@@ -1,3 +1,5 @@
+require 'csv'
+
 class ElectionsController < ApplicationController
   before_action :require_login
   before_action :set_election, only: [:show, :edit, :update, :destroy]
@@ -39,6 +41,24 @@ class ElectionsController < ApplicationController
 
   def show_users
     @users = Election.find(params[:election_id]).users
+  end
+
+  def csv_users
+    pp "*************************"
+    #If the user uploaded a file
+    if(!params[:users].nil? && !params[:users][:csv].nil?)
+      pp "IN IF"
+      #The election we want to add the users to 
+      election = Election.find(params[:election_id])
+      #The csv file the user uploaded
+      myFile = params[:users][:csv]
+      #Loop over each user in the file
+      CSV.foreach(myFile.path) do |user|
+        pp user
+        election.users << User.where(email: user)
+    end
+  end
+    pp "***************************"
   end
 
   def add_users

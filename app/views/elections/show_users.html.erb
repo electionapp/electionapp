@@ -17,3 +17,5 @@
 </table>
 
 <%= link_to 'Add users', add_users_to_election_path(user_id: params[:user_id], election_id: params[:election_id]) %>
+<div></div>
+<%= link_to 'Add from CSV', add_users_to_election_from_csv_path(user_id: params[:user_id], election_id: params[:election_id]) %>
