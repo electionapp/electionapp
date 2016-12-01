@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 20161128055925) do
 
   create_table "elections", force: :cascade do |t|
     t.text     "description"
-    t.text     "start_date"
-    t.text     "cloes_date"
+    t.datetime "start_date"
+    t.datetime "close_date"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.text     "title"
