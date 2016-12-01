@@ -15,9 +15,14 @@
       <tr class="active">
         <td><%=election.title%></td>
         <td><%=election.description%></td>
-        <td><%=election.close_date %></td>
+        <% if election.close_date > Time.now  %>
+        <td> open, ending at <%=election.close_date%> </td>
+        <% else %>
+        <td> closed </td>
+        <% end %>
         <td><%= link_to 'Positions', user_election_positions_path(election_id: election.id) %></td>
         <td><%= link_to 'Users', election_users_path(election_id: election.id)%></td>
+
       </tr>
     <% end %>
   </tbody>
