@@ -44,21 +44,20 @@ class ElectionsController < ApplicationController
   end
 
   def csv_users
-    pp "*************************"
     #If the user uploaded a file
     if(!params[:users].nil? && !params[:users][:csv].nil?)
-      pp "IN IF"
-      #The election we want to add the users to 
-      election = Election.find(params[:election_id])
-      #The csv file the user uploaded
-      myFile = params[:users][:csv]
+      election = Election.find(params[:election_id]) #The election we want to add the users to 
+      myFile = params[:users][:csv] #The csv file the user uploaded
+      
       #Loop over each user in the file
-      CSV.foreach(myFile.path) do |user|
-        pp user
-        election.users << User.where(email: user)
+      CSV.foreach(myFile.path) do |userEmail|
+        #If the user is NOT already a user in this election
+        if(election.users.where(email: userEmail)[0].nil?)
+          #Then add them to the election
+          election.users << User.where(email: userEmail)
+        end
     end
   end
-    pp "***************************"
   end
 
   def add_users
