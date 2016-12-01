@@ -5,6 +5,7 @@
     <tr class="active">
       <th>Title</th>
       <th>Description</th>
+      <th>Status</th>
       <th>Positions</th>
       <th>Users</th>
     </tr>
@@ -14,6 +15,7 @@
       <tr class="active">
         <td><%=election.title%></td>
         <td><%=election.description%></td>
+        <td><%=election.close_date %></td>
         <td><%= link_to 'Positions', user_election_positions_path(election_id: election.id) %></td>
         <td><%= link_to 'Users', election_users_path(election_id: election.id)%></td>
       </tr>
