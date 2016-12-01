@@ -57,6 +57,7 @@ class ElectionsController < ApplicationController
           election.users << User.where(email: userEmail)
         end
     end
+    redirect_to election_users_path, notice: "Users were added"
   end
   end
 

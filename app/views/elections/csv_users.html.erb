@@ -1,10 +1,25 @@
+  <div class="jumbotron">
+    <h1>Upload users from a csv</h1>      
+    <p>If you have an Excel file (from Log Jam;)) with the emails of all of the users you wish to add to your election this is the place for you!</p>
+    <p>1) Make sure your file is formatted properly
+    	<ul>
+    		<li>Each users email ends with "@pugetsound.edu" (spelled all the way out, no @ups.edu!)</li>
+    		<li>Each email is on a new row</li>
+    		<li>All emails are in the same column</li>
+    		<li>For example:</li>
+    		<img src=<%= image_url('usersCSV.jpg')%> style="width:304px;height:228px;">
+    		</ul>
+    		</p>
+    <p>2) Save the file as a .csv</p>
+    <p>3) Upload the file below!</p>
+    <p>NOTE: A user MUST already have an account to be added to an election.</p>
+  </div>
+
 <%= form_for(:users, url: add_users_to_election_from_csv_path, method: :post) do |form| %> 
-  <%= form.file_field :csv %>
-  <div class="form-group last">
-   		<div class="col-sm-offset-2 col-sm-9">
+<label class="control-label">Select File</label>
+  <%= form.file_field :csv, :class => "file" %>
        		<button type="submit" class="btn btn-success btn-sm">Submit</button>
-   		</div>                         
-   </div>
+
 <% end %>
-<div></div>
-<td><%= link_to 'Users', election_users_path(election_id: params[:election_id])%></td>
+
+<td><%= link_to 'Users', election_users_path(election_id: params[:election_id])%></td>     
