@@ -13,7 +13,11 @@
         <td><%=candidate.name%></td>
         <td><%=candidate.biography%></td>
         <td><%= pluralize(candidate.votes.count, "vote") %></td>
+        <td><% if (Time.now() - Election.find(params[:election_id]).close_date) >0 %>
         <td><%= button_to '+1',upvote_user_election_position_candidate_path(id: candidate.id), method: :post %></td>
+        <%else%>
+        <td>Election is closed</td>
+        <%end %>
 
 
 
