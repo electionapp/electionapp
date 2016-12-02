@@ -6,24 +6,25 @@
                 <div class="heading"> <strong class="">Create an election</strong>
 
 
-                    <form class="content-main" role="form">
+                    <form class="form-horizontal" role="form">
 
-                        <div class="form-group">
+                        <div class="content-main">
                             <label for="title" class="col-sm-2 control-label">Date</label>
                             <div class="col-sm-9">
                                 <%= form.datetime_select :close_date, :ampm => true, :minute_step => 15 %>
                             </div>
 
 
-                        <div class="form-group">
+                        <div class="content-main">
                             <label for="title" class="col-sm-2 control-label">Election Title</label>
                             <div class="col-sm-9">
                                 <%= form.text_field :title, type: 'text', class: "form-control", placeholder: 'Title', required: ''%>
                             </div>
                         </div>
 
+                        <div class="content-main">
                         <label for="description" class="col-sm-2 control-label">Description</label>
-                            <div class="col-sm-9">
+                            
                                 <%= form.text_field :description, type: 'text', class: "form-control", placeholder: 'Description', required: ''%>
                             </div>
                         </div>
