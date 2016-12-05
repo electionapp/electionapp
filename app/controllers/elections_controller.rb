@@ -76,8 +76,11 @@ class ElectionsController < ApplicationController
   # PATCH/PUT /elections/1
   # PATCH/PUT /elections/1.json
   def update
+    pp "*********************"
+    pp params[:election]
+    pp "*******************"
     respond_to do |format|
-      if @election.update(election_params)
+      if @election.update(election_params[:election])
         format.html { redirect_to user_elections_path, notice: 'Election was successfully updated.' }
         format.json { render :show, status: :ok, location: @election }
       else
