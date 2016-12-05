@@ -80,7 +80,7 @@ class ElectionsController < ApplicationController
     pp params[:election]
     pp "*******************"
     respond_to do |format|
-      if @election.update(params[:id], params[:description] => params[:"description"], params [:title] => params [:"title"])
+      if @election.update(params[:id])
         format.html { redirect_to user_elections_path, notice: 'Election was successfully updated.' }
         format.json { render :show, status: :ok, location: @election }
       else
