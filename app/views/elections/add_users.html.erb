@@ -12,6 +12,7 @@
                             <div class="col-sm-9">
                                 <%= form.text_field :email, name: 'new_user', type: 'text', class: "form-control", placeholder: 'joe@pugetsound.edu', required: ''%>
                             </div>
+                            <%= form.hidden_field :delete => true %>
                         </div>
                         <div class="form-group last">
                             <div class="col-sm-offset-2 col-sm-9">
