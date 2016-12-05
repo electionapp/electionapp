@@ -1,11 +1,19 @@
 <style>
- p{
+h2{
+  padding: 20px;
+}
+ div.userinfo{
    padding: 20px;
+
  }
+ 
 </style>
 
-<p>
-<%= User.find(params[:id]).email %>
+<h2> Account Info: </h2>
+
+<div class = "userinfo", style="display: inline-block">
+<%= User.find(params[:id]).email %> </div>
+<div class "deletelink", style="display: inline-block">
 <%= link_to 'Destroy',  user_path,
-    data: { confirm: 'Are you sure?' }, method: :delete %>
-</p>
+    data: { confirm: 'Are you sure?' }, method: :delete, :type => "button", class: 'btn btn-default' %>
+</div>
