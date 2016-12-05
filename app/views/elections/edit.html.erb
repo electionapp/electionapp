@@ -3,7 +3,7 @@
  <div class="container">
    <div class="row">
            <div class="panel panel-default">
-               <div class="panel-heading"> <strong class="">Edit election</strong>
+               <div class="panel-heading"> <strong class="">Edit election:</strong>
                </div>
                <div class="panel-body">
                    <form class="form-horizontal" role="form">
@@ -11,15 +11,15 @@
                    <%= form.hidden_field :id, :value =>  @election.id%>
 
                        <div class="form-group">
-                           <label for="title" class="col-sm-2 control-label">Election Title</label>
-                           <div class="col-sm-9">
+                           <label for="title" class="col-sm-3 control-label">Election Title:</label>
+                           <div class="col-8">
                                <%= form.text_field :title, type: 'text', class: "form-control", placeholder: 'Title', required: ''%>
                            </div>
                        </div>
 
                       <div class="form-group-fluid">
-                      <label for="description" class="col-sm-2 control-label">Description</label>
-                           <div class="col-sm-9">
+                      <label for="description" class="col-sm-3 control-label">Description:</label>
+                           <div class="col-8">
                                <%= form.text_field :description, type: 'text', class: "form-control", placeholder: 'Description', required: ''%>
                            </div>
                        </div>
