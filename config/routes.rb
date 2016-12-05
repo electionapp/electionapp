@@ -33,6 +33,7 @@ end
 # get "#{base}/new" => "elections#new", as: "new_election"
 get "/user/:user_id/elections/:election_id/users" => "elections#show_users", as: "election_users"
 get "/user/:user_id/elections/:election_id/users/add" => "elections#add_users", as: "add_users_to_election"
+post "/user/:user_id/elections/:election_id/users/add" => "elections#add_users"
 get "/user/:user_id/elections/:election_id/users/csv" => "elections#csv_users", as: "add_users_to_election_from_csv"
 post "/user/:user_id/elections/:election_id/users/csv" => "elections#csv_users"
 end
