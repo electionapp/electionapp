@@ -1,13 +1,14 @@
-<h1>Editing Election</h1>
-<%= form_for(:id) do |form| %>
+<h1>Edit Election</h1>
+<%= form_for(:election, url: user_election_path, method: :put) do |form| %>
   <div class="container">
     <div class="row">
-        <div class="col-md-4 col-md-offset-7">
             <div class="panel panel-default">
-                <div class="panel-heading"> <strong class="">Create an election</strong>
+                <div class="panel-heading"> <strong class="">Edit election</strong>
                 </div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form">
+
+                        <%= form.hidden_field :close_date => Election.find(params[:id]) %>
 
 
                         <div class="form-group">
@@ -17,7 +18,8 @@
                             </div>
                         </div>
 
-                        <label for="description" class="col-sm-2 control-label">Description</label>
+                       <div class="form-group-fluid">
+                       <label for="description" class="col-sm-2 control-label">Description</label>
                             <div class="col-sm-9">
                                 <%= form.text_field :description, type: 'text', class: "form-control", placeholder: 'Description', required: ''%>
                             </div>
@@ -30,7 +32,6 @@
                         </div>
                     </form>
                 </div>
-            </div>
         </div>
     </div>
 </div>

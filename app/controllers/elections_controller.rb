@@ -40,7 +40,7 @@ class ElectionsController < ApplicationController
   end
 
   def show_users
-    @users = Election.find(params[:election_id]).users
+    @users = Election.find(params[:id]).users
   end
 
   def csv_users
@@ -76,6 +76,9 @@ class ElectionsController < ApplicationController
   # PATCH/PUT /elections/1
   # PATCH/PUT /elections/1.json
   def update
+    pp "*********************"
+    pp params[:election]
+    pp "*******************"
     respond_to do |format|
       if @election.update(election_params)
         format.html { redirect_to user_elections_path, notice: 'Election was successfully updated.' }
