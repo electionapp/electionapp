@@ -22,7 +22,7 @@
         <% end %>
         <td><%= link_to 'Positions', user_election_positions_path(election_id: election.id) %></td>
         <td><%= link_to 'Users', election_users_path(election_id: election.id)%></td>
-
+        <td><%= link_to 'Update', edit_users_election_path(election_id: election.id)%></td>
       </tr>
     <% end %>
   </tbody>
