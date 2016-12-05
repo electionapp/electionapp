@@ -19,7 +19,7 @@
                 <td>
                     <%=pluralize(candidate.votes.count, "vote") %>
                 </td>
-                <% if (Time.now() - Election.find(params[:election_id]).close_date)>0 %>
+                <% if Election.find(params[:election_id]).close_date > Time.now %>
                     <td>
                         <%=button_to '+1',upvote_user_election_position_candidate_path(id: candidate.id), method: :post %>
                     </td>

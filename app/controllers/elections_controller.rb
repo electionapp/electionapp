@@ -66,8 +66,8 @@ class ElectionsController < ApplicationController
     pp "**********************"
     pp params[:election_id]
     pp "****************************"
-    election = Election.find(election_params[:id]) #Find the election we want to add the users to
-    election.users << User.find(election_params[:user_id])
+    election = Election.find(params[:election_id]) #Find the election we want to add the users to
+    election.users << User.find(params[:user_id])
     new_user = params[:new_user] #Find new user to add
     if election.users.include? new_user #If that user already exists
       format.html { redirect_to elections_url, notice: 'User Already Exists.' } #Do nothing
