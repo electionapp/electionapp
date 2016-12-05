@@ -46,9 +46,9 @@ class ElectionsController < ApplicationController
   def csv_users
     #If the user uploaded a file
     if(!params[:users].nil? && !params[:users][:csv].nil?)
-      election = Election.find(params[:election_id]) #The election we want to add the users to 
+      election = Election.find(params[:election_id]) #The election we want to add the users to
       myFile = params[:users][:csv] #The csv file the user uploaded
-      
+
       #Loop over each user in the file
       CSV.foreach(myFile.path) do |userEmail|
         #If the user is NOT already a user in this election
@@ -65,11 +65,11 @@ class ElectionsController < ApplicationController
       if(!params[:new_user].nil?)
       election = Election.find(params[:election_id])
       user = User.where(email: params[:new_user]).first
-      if(election.users.where(email: user.email)[0].nil?)
+      if(!user.nil? && !election.users.where(email: user.email).nil?)
       election.users << user
       return redirect_to election_users_path, notice: "User was added"
     end
-    return redirect_to election_users_path, notice: "User was already a member"
+    return redirect_to election_users_path, notice: "User was not added"
       end
   end
 
@@ -100,7 +100,7 @@ class ElectionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_election
-      rescue ActiveRecord::RecordNotFound  
+      rescue ActiveRecord::RecordNotFound
        redirect_to :controller => "main", :action => "index"
        return
     end
