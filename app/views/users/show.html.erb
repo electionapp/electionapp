@@ -1,5 +1,11 @@
+<style>
+ p{
+   padding: 20px;
+ }
+</style>
+
+<p>
 <%= User.find(params[:id]).email %>
-
-
 <%= link_to 'Destroy',  user_path,
     data: { confirm: 'Are you sure?' }, method: :delete %>
+</p>

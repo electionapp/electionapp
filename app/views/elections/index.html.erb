@@ -20,12 +20,10 @@
         <% else %>
         <td> closed, finished at <%=election.close_date%> </td>
         <% end %>
-        <td><%= link_to 'Positions', user_election_positions_path(election_id: election.id) %></td>
-        <td><%= link_to 'Users', election_users_path(election_id: election.id)%></td>
+        <td><%= link_to 'Positions', user_election_positions_path(election_id: election.id), :type => "button", :class=> 'btn btn-default' %></button></td>
+        <td><%= link_to 'Users', election_users_path(election_id: election.id), :type => "button", :class=> 'btn btn-default' %></button></td>
 
       </tr>
     <% end %>
   </tbody>
 </table>
-<br>
-<%= link_to 'New Election', new_user_election_path %>
