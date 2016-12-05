@@ -9,6 +9,7 @@
       <th>Positions</th>
       <th>Users</th>
       <th>Update</th>
+      <th>Delete</th>
     </tr>
   </thead>
   <tbody>
@@ -24,6 +25,7 @@
         <td><%= link_to 'Positions', user_election_positions_path(election_id: election.id), :type => "button", :class=> 'btn btn-default' %></button></td>
         <td><%= link_to 'Users', election_users_path(election_id: election.id), :type => "button", :class=> 'btn btn-default' %></button></td>
         <td><%= link_to 'Update', edit_user_election_path(id: election.id), :type => "button", :class=> 'btn btn-default' %></button></td>
+        <td><%= link_to 'Delete', user_election_path(id: election.id), data: { confirm: 'Are you sure?' }, :method => :delete, :type => "button", :class=> 'btn btn-default'%></button></td>
       </tr>
     <% end %>
   </tbody>

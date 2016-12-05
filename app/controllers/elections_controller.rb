@@ -93,9 +93,10 @@ class ElectionsController < ApplicationController
  # DELETE /elections/1
  # DELETE /elections/1.json
  def destroy
+   @election = Election.find(params[:id])
    @election.destroy
    respond_to do |format|
-     format.html { redirect_to elections_url, notice: 'Election was successfully destroyed.' }
+     format.html { redirect_to user_elections_path, notice: 'Election was successfully destroyed.' }
      format.json { head :no_content }
    end
  end
