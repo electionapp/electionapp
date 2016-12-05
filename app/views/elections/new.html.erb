@@ -9,23 +9,22 @@
                     <form class="form-horizontal" role="form">
 
                         <div class="form-group">
-                            <label for="title" class="col-sm-2 control-label">Date</label>
+                            <label for="title" class="col-sm-2 control-label">Date:</label>
                             <div class="col-sm-9">
                                 <%= form.datetime_select :close_date, :ampm => true, :minute_step => 15 %>
                             </div>
                         </div>
 
-
                         <div class="form-group">
-                            <label for="title" class="col-sm-2 control-label">Election Title</label>
-                            <div class="col-sm-9">
+                            <label for="title" class="col-sm-3 control-label">Election Title:</label>
+                            <div class="col-8">
                                 <%= form.text_field :title, type: 'text', class: "form-control", placeholder: 'Title', required: ''%>
                             </div>
                         </div>
 
-                       <div class="form-group-fluid">
-                       <label for="description" class="col-sm-2 control-label">Description</label>
-                            <div class="col-sm-9">
+                       <div class="form-group">
+                       <label for="description" class="col-sm-3 control-label">Description:</label>
+                            <div class="col-8">
                                 <%= form.text_field :description, type: 'text', class: "form-control", placeholder: 'Description', required: ''%>
                             </div>
                         </div>
