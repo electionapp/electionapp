@@ -1,40 +1,37 @@
 <h1>Edit Election</h1>
-<%= form_for(:election, url: user_election_path, method: :put) do |form| %>
-  <div class="container">
-    <div class="row">
-            <div class="panel panel-default">
-                <div class="panel-heading"> <strong class="">Edit election</strong>
-                </div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form">
+<%= form_for(@election, url: user_election_path, method: :put) do |form| %>
+ <div class="container">
+   <div class="row">
+           <div class="panel panel-default">
+               <div class="panel-heading"> <strong class="">Edit election</strong>
+               </div>
+               <div class="panel-body">
+                   <form class="form-horizontal" role="form">
 
-                        <%= form.hidden_field :close_date => Election.find(params[:id]) %>
+                   <%= form.hidden_field :id, :value =>  @election.id%>
 
+                       <div class="form-group">
+                           <label for="title" class="col-sm-2 control-label">Election Title</label>
+                           <div class="col-sm-9">
+                               <%= form.text_field :title, type: 'text', class: "form-control", placeholder: 'Title', required: ''%>
+                           </div>
+                       </div>
 
-                        <div class="form-group">
-                            <label for="title" class="col-sm-2 control-label">Election Title</label>
-                            <div class="col-sm-9">
-                                <%= form.text_field :title, type: 'text', class: "form-control", placeholder: 'Title', required: ''%>
-                            </div>
-                        </div>
+                      <div class="form-group-fluid">
+                      <label for="description" class="col-sm-2 control-label">Description</label>
+                           <div class="col-sm-9">
+                               <%= form.text_field :description, type: 'text', class: "form-control", placeholder: 'Description', required: ''%>
+                           </div>
+                       </div>
 
-                       <div class="form-group-fluid">
-                       <label for="description" class="col-sm-2 control-label">Description</label>
-                            <div class="col-sm-9">
-                                <%= form.text_field :description, type: 'text', class: "form-control", placeholder: 'Description', required: ''%>
-                            </div>
-                        </div>
-
-                        <div class="form-group last">
-                            <div class="col-sm-offset-2 col-sm-9">
-                                <button type="submit" class="btn btn-success btn-sm">Submit</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-        </div>
-    </div>
+                       <div class="form-group last">
+                           <div class="col-sm-offset-2 col-sm-9">
+                               <button type="submit" class="btn btn-success btn-sm">Submit</button>
+                           </div>
+                       </div>
+                   </form>
+               </div>
+       </div>
+   </div>
 </div>
 <% end %>
-
-<%= link_to 'Show', @election %>
