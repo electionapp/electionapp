@@ -17,14 +17,13 @@
                             <div class="col-sm-9">
                                 <%= form.text_area :biography, type: 'text', class: "form-control", placeholder: 'About me ...'%>
                             </div>
-                        </div>
-                        <%= form.hidden_field :position_id, :value => params[:position_id] %>
-
-                        <div class="form-group last">
-                            <div class="col-sm-offset-2 col-sm-9">
-                                <button type="submit" class="btn btn-success btn-sm">Submit</button>
+                            <div class="form-group last">
+                                <div class="col-sm-offset-2 col-sm-9">
+                                    <button type="submit" class="btn btn-success btn-sm">Submit</button>
+                                </div>
                             </div>
                         </div>
+                        <%= form.hidden_field :position_id, :value => params[:position_id] %>
                     </form>
             </div>
         </div>
