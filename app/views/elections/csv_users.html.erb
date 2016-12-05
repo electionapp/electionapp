@@ -1,5 +1,5 @@
   <div class="jumbotron">
-    <h1>Upload users from a csv</h1>      
+    <h1>Upload users from a csv</h1>
     <p>If you have an Excel file (from Log Jam;)) with the emails of all of the users you wish to add to your election this is the place for you!</p>
     <p>1) Make sure your file is formatted properly
     	<ul>
@@ -15,11 +15,11 @@
     <p>NOTE: A user MUST already have an account to be added to an election.</p>
   </div>
 
-<%= form_for(:users, url: add_users_to_election_from_csv_path, method: :post) do |form| %> 
+<%= form_for(:users, url: add_users_to_election_from_csv_path, method: :post) do |form| %>
 <label class="control-label">Select File</label>
   <%= form.file_field :csv, :class => "file" %>
-       		<button type="submit" class="btn btn-success btn-sm">Submit</button>
+       		<button type="submit" class="btn btn-success">Submit</button>
 
 <% end %>
 
-<td><%= link_to 'Users', election_users_path(election_id: params[:election_id])%></td>     
+<td><%= link_to 'Users', election_users_path(election_id: params[:election_id]), :type=> "button", :class => "btn btn-default"%></td>
