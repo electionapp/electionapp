@@ -26,3 +26,5 @@ All group members were present. Worked for 3 hours to configure git repository :
 
 Nov. 8 image:
 ![alt text](README_images/add-page.png)
+
+Editing the ReadMe
