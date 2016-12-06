@@ -73,7 +73,7 @@ class CandidatesController < ApplicationController
     end
     #The user hasn't already voted for someone in this position so save their vote
       @candidate = Candidate.find(params[:id])
-      vote = @candidate.votes.new(candidate_id: params[:id], user_id: params[:user_id], position_id: params[:position_id])
+      vote = @candidate.votes.new(candidate_id: params[:id], user_id: params[:user_id], position_id: params[:position_id], election_id: params[:election_id])
       vote.save
       redirect_to(user_election_position_candidates_path, :notice => "Your vote has been recorded.")
   end
