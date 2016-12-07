@@ -4,7 +4,7 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Hello, <%= @user.email.split("@")[0].capitalize %></h1>
+    <h1>Hello <%= @user.email.split("@")[0].capitalize %>,</h1>
     <h2> Thanks for signing up for Opine. We hope you enjoy using it! </h2>
   </body>
 </html>
