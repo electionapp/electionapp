@@ -31,7 +31,18 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.default_url_options = { host: 'http://ec2-52-40-34-90.us-west-2.compute.amazonaws.com/' }
+  #config.action_mailer.default_url_options = { host: 'http://ec2-52-40-34-90.us-west-2.compute.amazonaws.com/' }
+
+  config.action_mailer.delivery_method = :smtp
+  # SMTP settings for gmail
+  config.action_mailer.smtp_settings = {
+   :address              => "smtp.gmail.com",
+   :port                 => 587,
+   :user_name            => 'upselectionapp@gmail.com',
+   :password             => 'password1234..',
+   :authentication       => "plain",
+  :enable_starttls_auto => true
+  }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

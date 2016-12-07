@@ -32,6 +32,8 @@ class ElectionsController < ApplicationController
    respond_to do |format|
      if @election.save
        @election.users << current_user #add the current user to the users for this election
+       #Mail the users of the election a notice that the election is closed and they should check the results
+       UserMailer.send_results_email(@election.id).deliver_later(wait_until: @election.close_date)
        format.html { redirect_to user_elections_path, notice: 'Election was successfully created.' }
        format.json { render :show, status: :created, location: @election }
      else
